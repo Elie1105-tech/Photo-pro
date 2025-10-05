@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXPhoto - Réservation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/css/custom-alert.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bleu-nuit: #2d2d2d;
+            --blanc: #FFFFFF;
+            --dore: #C49B3A;
+            --gris-clair: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--bleu-nuit);
+            background: #000000;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Header Sticky */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #000000;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            transition: padding 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blanc);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--dore);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--blanc);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dore);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--dore);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--blanc);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(10, 10, 35, 0.6), rgba(10, 10, 35, 0.6)),
+                        url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanc);
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #000000;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--bleu-nuit);
+        }
+
+        .section-intro p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Category Cards */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .category-card {
+            position: relative;
+            height: 550px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(196, 155, 58, 0.4);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .category-card:hover .category-image {
+            transform: scale(1.15);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
+            padding: 3rem 2.5rem;
+            color: var(--blanc);
+            transition: all 0.5s ease;
+        }
+
+        .category-card:hover .category-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.85) 70%, rgba(0, 0, 0, 0.3) 100%);
+            padding: 4rem 2.5rem;
+        }
+
+        .category-number {
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--dore);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: -2rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover .category-number {
+            opacity: 0.4;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .category-description {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.1s;
+        }
+
+        .category-card:hover .category-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-features {
+            list-style: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.2s;
+        }
+
+        .category-card:hover .category-features {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .category-features li i {
+            color: var(--dore);
+            font-size: 0.9rem;
+        }
+
+        .category-arrow {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--dore);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--blanc);
+            opacity: 0;
+            transform: rotate(-45deg) scale(0.8);
+            transition: all 0.5s ease;
+        }
+
+        .category-card:hover .category-arrow {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bleu-nuit);
+            color: var(--blanc);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-social a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--blanc);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--dore);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--bleu-nuit);
+                width: 100%;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 2fr;
+            }
+
+            .section-intro h2 {
+                font-size: 2rem;
+            }
+
+            .category-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="home.html" class="logo">LX<span>Photo</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div data-aos="fade-up">
+            <h1>Réservation</h1>
+            <p>Choisissez votre type de session photo professionnelle</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="section-intro" data-aos="fade-up">
+            <h2>Nos Services</h2>
+            <p>Découvrez nos différentes sessions photo et trouvez celle qui correspond à vos besoins et à votre vision artistique.</p>
+        </div>
+
+        <div class="category-grid">
+            <!-- Portrait Card -->
+            <div class="category-card" data-aos="zoom-in" data-aos-delay="100" onclick="window.location.href='./booking/booking_portrait.html'">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800" alt="Portrait" class="category-image">
+                <div class="category-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="category-overlay">
+                    <div class="category-number">01</div>
+                    <h3 class="category-title">Portrait</h3>
+                    <p class="category-description">Séances individuelles ou de groupe capturant votre personnalité unique, votre essence et votre authenticité.</p>
+                    <ul class="category-features">
+                        <li><i class="fas fa-check"></i> Durée : 1h30</li>
+                        <li><i class="fas fa-check"></i> 30-40 photos retouchées</li>
+                        <li><i class="fas fa-check"></i> Studio ou extérieur</li>
+                        <li><i class="fas fa-check"></i> Conseils posing inclus</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Business Card -->
+            <div class="category-card" data-aos="zoom-in" data-aos-delay="200" onclick="window.location.href='./booking/booking_business.html'">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="Business" class="category-image">
+                <div class="category-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="category-overlay">
+                    <div class="category-number">02</div>
+                    <h3 class="category-title">Business</h3>
+                    <p class="category-description">Photos professionnelles pour LinkedIn, CV, sites web et supports de communication corporate.</p>
+                    <ul class="category-features">
+                        <li><i class="fas fa-check"></i> Durée : 1h</li>
+                        <li><i class="fas fa-check"></i> 15-20 photos retouchées</li>
+                        <li><i class="fas fa-check"></i> Studio professionnel</li>
+                        <li><i class="fas fa-check"></i> Conseils styling inclus</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sensuel Card -->
+            <div class="category-card" data-aos="zoom-in" data-aos-delay="300" onclick="window.location.href='./booking/booking_sensuel.html'">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800" alt="Sensuel" class="category-image">
+                <div class="category-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="category-overlay">
+                    <div class="category-number">03</div>
+                    <h3 class="category-title">Sensuel</h3>
+                    <p class="category-description">Séances intimistes et artistiques dans un cadre respectueux, bienveillant et totalement privé.</p>
+                    <ul class="category-features">
+                        <li><i class="fas fa-check"></i> Durée : 2h</li>
+                        <li><i class="fas fa-check"></i> 40-50 photos retouchées</li>
+                        <li><i class="fas fa-check"></i> Studio privé sécurisé</li>
+                        <li><i class="fas fa-check"></i> Accompagnement personnalisé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 LXPhoto. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Alert Modal -->
+    <div class="alert-overlay" id="alertOverlay"></div>
+    <div class="custom-alert" id="customAlert">
+        <div class="custom-alert-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="custom-alert-title">Image Protégée</h3>
+        <p class="custom-alert-message">Cette image est protégée par des droits d'auteur. Toute reproduction est interdite.</p>
+        <button class="custom-alert-btn" onclick="closeCustomAlert()">Compris</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="./asset/js/image-protection.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: false
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

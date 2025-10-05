@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXPhoto - Workshop Débutant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bleu-nuit: #0A0A23;
+            --blanc: #FFFFFF;
+            --dore: #C49B3A;
+            --gris-clair: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--bleu-nuit);
+            background: var(--blanc);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Header Sticky */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            transition: padding 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blanc);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--dore);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--blanc);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dore);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--dore);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--blanc);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero-detail {
+            height: 60vh;
+            background: linear-gradient(rgba(10, 10, 35, 0.5), rgba(10, 10, 35, 0.5)),
+                        url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanc);
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero-detail::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--blanc));
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 2rem;
+            left: 5%;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--blanc);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            background: var(--dore);
+            transform: translateX(-5px);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 5rem;
+        }
+
+        .content-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--bleu-nuit);
+        }
+
+        .content-intro p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Program Section */
+        .program-section {
+            background: var(--gris-clair);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            margin-bottom: 5rem;
+        }
+
+        .program-section h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--bleu-nuit);
+            text-align: center;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-item {
+            background: var(--blanc);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .program-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dore);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .program-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .program-item ul li {
+            padding: 0.8rem 0;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .program-item ul li i {
+            color: var(--dore);
+            margin-top: 0.3rem;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(196, 155, 58, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 35, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            color: var(--blanc);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .info-card {
+            background: var(--blanc);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: var(--dore);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--bleu-nuit);
+        }
+
+        .info-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bleu-nuit), #1a1a3e);
+            color: var(--blanc);
+            padding: 5rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--dore);
+            color: var(--blanc);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dore);
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--dore);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 155, 58, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bleu-nuit);
+            color: var(--blanc);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-social a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--blanc);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--dore);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--bleu-nuit);
+                width: 100%;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="home.html" class="logo">LX<span>Photo</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="workshops.html" class="active">Workshops</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-detail">
+        <a href="workshops.html" class="back-btn" data-aos="fade-right">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Workshop Débutant</h1>
+            <p>Les fondamentaux de la photographie</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-intro" data-aos="fade-up">
+            <h2>Apprenez les Bases de la Photographie</h2>
+            <p>Ce workshop est conçu pour les personnes qui débutent en photographie et souhaitent maîtriser rapidement les fondamentaux. En une journée intensive, vous apprendrez à sortir du mode automatique et à comprendre les réglages essentiels de votre appareil photo.</p>
+            <p>Une formation pratique et conviviale où vous mettrez immédiatement en application ce que vous apprenez.</p>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-cards">
+            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-clock"></i>
+                <h3>Durée</h3>
+                <p>4 heures de formation intensive</p>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-users"></i>
+                <h3>Groupe</h3>
+                <p>Maximum 6 participants</p>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-book"></i>
+                <h3>Support</h3>
+                <p>Manuel de cours inclus</p>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-euro-sign"></i>
+                <h3>Tarif</h3>
+                <p>80€ par personne</p>
+            </div>
+        </div>
+
+        <!-- Program Section -->
+        <div class="program-section" data-aos="fade-up">
+            <h3>Programme de la Formation</h3>
+            <div class="program-grid">
+                <div class="program-item">
+                    <h4><i class="fas fa-lightbulb"></i> Théorie Photo</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Le triangle d'exposition (ISO, Ouverture, Vitesse)</li>
+                        <li><i class="fas fa-check"></i> La profondeur de champ</li>
+                        <li><i class="fas fa-check"></i> Balance des blancs</li>
+                        <li><i class="fas fa-check"></i> Modes de mesure</li>
+                    </ul>
+                </div>
+
+                <div class="program-item">
+                    <h4><i class="fas fa-camera"></i> Composition</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Règle des tiers</li>
+                        <li><i class="fas fa-check"></i> Lignes directrices</li>
+                        <li><i class="fas fa-check"></i> Cadrage et perspective</li>
+                        <li><i class="fas fa-check"></i> Gestion de la lumière naturelle</li>
+                    </ul>
+                </div>
+
+                <div class="program-item">
+                    <h4><i class="fas fa-running"></i> Pratique</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Exercices en extérieur</li>
+                        <li><i class="fas fa-check"></i> Shooting supervisé</li>
+                        <li><i class="fas fa-check"></i> Analyse des photos</li>
+                        <li><i class="fas fa-check"></i> Conseils personnalisés</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div data-aos="fade-up">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--bleu-nuit);">Galerie Workshop Débutant</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600" alt="Workshop 1">
+                    <div class="gallery-overlay">
+                        <p>Apprentissage des réglages</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600" alt="Workshop 2">
+                    <div class="gallery-overlay">
+                        <p>Exercices de composition</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600" alt="Workshop 3">
+                    <div class="gallery-overlay">
+                        <p>Session pratique</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=600" alt="Workshop 4">
+                    <div class="gallery-overlay">
+                        <p>Groupe d'apprentissage</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?w=600" alt="Workshop 5">
+                    <div class="gallery-overlay">
+                        <p>Prise de vue extérieure</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=600" alt="Workshop 6">
+                    <div class="gallery-overlay">
+                        <p>Analyse des résultats</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section" data-aos="zoom-in">
+            <h2>Prêt à Commencer ?</h2>
+            <p>Rejoignez notre prochain workshop et commencez votre aventure photographique</p>
+            <a href="about.html" class="btn">Contactez-nous</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 LXPhoto. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXPhoto - Panneau d'administration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid #C49B3A;
+            text-align: center;
+        }
+
+        .admin-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #C49B3A;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: #C49B3A;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #d4a84a;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: #8b6914;
+        }
+
+        .admin-content {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #C49B3A;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #C49B3A;
+            font-weight: 600;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #444;
+            border-radius: 10px;
+            background: #2d2d2d;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: #C49B3A;
+        }
+
+        .btn {
+            background: #C49B3A;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #d4a84a;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .preview-section {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .status-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .status-success {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #28a745;
+        }
+
+        .status-error {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid #dc3545;
+            color: #dc3545;
+        }
+
+        .instructions {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid #ffc107;
+            color: #ffc107;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .instructions h3 {
+            margin-bottom: 1rem;
+            color: #ffc107;
+        }
+
+        .instructions ol {
+            text-align: left;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <div class="admin-logo">LX<span style="color: #C49B3A;">Photo</span> Admin</div>
+        <p>Panneau d'administration - Gérez votre site facilement</p>
+    </div>
+
+    <div class="admin-nav">
+        <button class="nav-btn active" onclick="showSection('general')">Général</button>
+        <button class="nav-btn" onclick="showSection('images')">Images</button>
+        <button class="nav-btn" onclick="showSection('content')">Contenu</button>
+        <button class="nav-btn" onclick="showSection('settings')">Paramètres</button>
+        <button class="nav-btn btn-danger" onclick="logout()">Déconnexion</button>
+    </div>
+
+    <div class="admin-content">
+        <!-- Section Général -->
+        <div id="general-section" class="section active">
+            <h2>Informations générales</h2>
+            <div class="instructions">
+                <h3>📝 Comment modifier :</h3>
+                <ol>
+                    <li><strong>Fichier à modifier :</strong> home.html (ligne 35 environ)</li>
+                    <li><strong>Recherchez :</strong> &lt;h1&gt;Capturer l'Essence&lt;/h1&gt;</li>
+                    <li><strong>Modifiez le texte entre les balises</strong></li>
+                    <li><strong>Enregistrez et rechargez la page</strong></li>
+                </ol>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Titre principal actuel :</label>
+                <div class="preview-section">
+                    <strong>Capturer l'Essence</strong>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Sous-titre actuel :</label>
+                <div class="preview-section">
+                    <em>Photographe professionnel spécialisé en portraits et scènes de vie authentiques</em>
+                </div>
+            </div>
+
+            <button class="btn" onclick="showInstructions('general')">Voir instructions détaillées</button>
+        </div>
+
+        <!-- Section Images -->
+        <div id="images-section" class="section">
+            <h2>Gestion des images</h2>
+            <div class="instructions">
+                <h3>🖼️ Comment changer les images :</h3>
+                <ol>
+                    <li><strong>Dossier images :</strong> /asset/image/</li>
+                    <li><strong>Format recommandé :</strong> JPG, 800x600px minimum</li>
+                    <li><strong>Nom des fichiers :</strong> 1.jpg, 2.jpg, etc.</li>
+                    <li><strong>Dans le code :</strong> Recherchez "src=" et remplacez l'URL</li>
+                </ol>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Images actuelles dans la galerie :</label>
+                <div class="preview-section">
+                    <p><strong>Page d'accueil :</strong> Images Unsplash (à remplacer)</p>
+                    <p><strong>Galeries booking :</strong> Images Unsplash (à remplacer)</p>
+                    <p><strong>Portfolio :</strong> À créer</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Pour remplacer une image :</label>
+                <div class="preview-section">
+                    <ol>
+                        <li>Ajoutez votre image dans /asset/image/</li>
+                        <li>Ouvrez le fichier HTML concerné</li>
+                        <li>Recherchez l'URL Unsplash à remplacer</li>
+                        <li>Remplacez par : ../asset/image/votre-image.jpg</li>
+                    </ol>
+                </div>
+            </div>
+
+            <button class="btn" onclick="showInstructions('images')">Guide complet remplacement images</button>
+        </div>
+
+        <!-- Section Contenu -->
+        <div id="content-section" class="section">
+            <h2>Modification du contenu</h2>
+            <div class="instructions">
+                <h3>✍️ Comment modifier le texte :</h3>
+                <ol>
+                    <li><strong>Fichiers principaux :</strong> home.html, booking.html, etc.</li>
+                    <li><strong>Recherchez le texte</strong> entre les balises HTML</li>
+                    <li><strong>Modifiez directement</strong> dans le fichier</li>
+                    <li><strong>Testez</strong> en ouvrant la page</li>
+                </ol>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Sections modifiables :</label>
+                <div class="preview-section">
+                    <ul>
+                        <li>Titres et descriptions</li>
+                        <li>Tarifs des prestations</li>
+                        <li>Informations de contact</li>
+                        <li>Descriptions des services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="btn" onclick="showInstructions('content')">Voir tous les éléments modifiables</button>
+        </div>
+
+        <!-- Section Paramètres -->
+        <div id="settings-section" class="section">
+            <h2>Paramètres avancés</h2>
+
+            <div class="form-group">
+                <label class="form-label">Mot de passe administrateur :</label>
+                <input type="password" class="form-input" id="newPassword" placeholder="Nouveau mot de passe">
+                <button class="btn" onclick="changePassword()">Changer le mot de passe</button>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Protection des images :</label>
+                <div class="preview-section">
+                    <p><strong>Statut :</strong> <span style="color: #28a745;">Activée</span></p>
+                    <p><strong>Fichiers :</strong> asset/js/image-protection.js</p>
+                    <p><strong>Pour désactiver :</strong> Supprimer les scripts des pages HTML</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Couleurs du thème :</label>
+                <div class="preview-section">
+                    <p><strong>Principal :</strong> #C49B3A (Doré)</p>
+                    <p><strong>Fond :</strong> #000000 (Noir)</p>
+                    <p><strong>Modifier dans :</strong> :root dans les fichiers CSS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active from nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionName + '-section').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function showInstructions(type) {
+            let message = '';
+
+            switch(type) {
+                case 'general':
+                    message = '📝 INSTRUCTIONS DÉTAILLÉES :\n\n1. Ouvrez le fichier home.html\n2. Cherchez la ligne avec <h1>Capturer l\'Essence</h1>\n3. Modifiez le texte entre les balises <h1> et </h1>\n4. Pour le sous-titre, cherchez <p>Photographe professionnel...</p>\n5. Sauvegardez et rechargez la page pour voir les changements';
+                    break;
+                case 'images':
+                    message = '🖼️ GUIDE REMPLACEMENT IMAGES :\n\n1. Créez un dossier /asset/image/ à la racine du site\n2. Ajoutez vos images (format .jpg recommandé)\n3. Nommez-les simplement : 1.jpg, 2.jpg, etc.\n4. Ouvrez le fichier HTML concerné\n5. Cherchez les URLs Unsplash (https://images.unsplash.com/...)\n6. Remplacez par : ../asset/image/votre-image.jpg\n7. Sauvegardez et testez';
+                    break;
+                case 'content':
+                    message = '✍️ MODIFICATION DU CONTENU :\n\nFichiers à modifier :\n• home.html - Page d\'accueil\n• booking.html - Page réservation\n• booking/*.html - Pages détaillées\n• workshops.html - Formations\n\nCherchez le texte entre les balises HTML et modifiez directement. Toutes les descriptions, tarifs et informations sont modifiables.';
+                    break;
+            }
+
+            alert(message);
+        }
+
+        function changePassword() {
+            const newPassword = document.getElementById('newPassword').value;
+            if (newPassword.length >= 6) {
+                alert('⚠️ IMPORTANT : Vous devez modifier manuellement la variable ADMIN_PASSWORD dans le fichier admin.html avec votre nouveau mot de passe : ' + newPassword);
+                document.getElementById('newPassword').value = '';
+            } else {
+                alert('Le mot de passe doit contenir au moins 6 caractères');
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('adminLoggedIn');
+            window.location.href = 'admin.html';
+        }
+
+        // Check authentication
+        if (sessionStorage.getItem('adminLoggedIn') !== 'true') {
+            window.location.href = 'admin.html';
+        }
+    </script>
+</body>
+</html>
