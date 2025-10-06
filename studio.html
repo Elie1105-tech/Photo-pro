@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LXPhoto - Workshop Débutant</title>
+    <title>LXPhoto - Notre Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -118,11 +118,11 @@
             transition: 0.3s;
         }
 
-        /* Hero Section */
-        .hero-detail {
+        /* Page Header */
+        .page-header {
             height: 60vh;
             background: linear-gradient(rgba(10, 10, 35, 0.5), rgba(10, 10, 35, 0.5)),
-                        url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1920') center/cover;
+                        url('https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1920') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -132,7 +132,7 @@
             position: relative;
         }
 
-        .hero-detail::before {
+        .page-header::before {
             content: '';
             position: absolute;
             bottom: 0;
@@ -142,49 +142,24 @@
             background: linear-gradient(to bottom, transparent, var(--blanc));
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .back-btn {
-            position: absolute;
-            top: 2rem;
-            left: 5%;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--blanc);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-        }
-
-        .back-btn:hover {
-            background: var(--dore);
-            transform: translateX(-5px);
-        }
-
-        .hero-content h1 {
+        .page-header h1 {
             font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
             letter-spacing: 3px;
+            margin-bottom: 1rem;
         }
 
-        .hero-content p {
+        .page-header p {
             font-size: 1.3rem;
             font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         /* Main Content */
         .main-content {
             padding: 6rem 5%;
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -207,72 +182,59 @@
             margin-bottom: 1rem;
         }
 
-        /* Program Section */
-        .program-section {
+        /* Features Section */
+        .features-section {
             background: var(--gris-clair);
             padding: 4rem 3rem;
             border-radius: 20px;
             margin-bottom: 5rem;
         }
 
-        .program-section h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--bleu-nuit);
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-item {
             text-align: center;
         }
 
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-item {
-            background: var(--blanc);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .program-item h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dore);
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--dore), #d4a854);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--blanc);
+            font-size: 2rem;
         }
 
-        .program-item ul {
-            list-style: none;
-            padding-left: 0;
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--bleu-nuit);
         }
 
-        .program-item ul li {
-            padding: 0.8rem 0;
-            color: #555;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
         }
 
-        .program-item ul li i {
-            color: var(--dore);
-            margin-top: 0.3rem;
-        }
-
-        /* Gallery */
-        .gallery {
+        /* Gallery Grid */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
-            margin-bottom: 6rem;
+            margin-bottom: 5rem;
         }
 
         .gallery-item {
             position: relative;
-            height: 400px;
+            height: 450px;
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
@@ -299,10 +261,11 @@
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(10, 10, 35, 0.8), transparent);
+            background: linear-gradient(to top, rgba(10, 10, 35, 0.9), transparent 60%);
             display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
             color: var(--blanc);
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -312,63 +275,89 @@
             opacity: 1;
         }
 
-        /* Info Cards */
-        .info-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+        .gallery-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .info-card {
-            background: var(--blanc);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+        .gallery-overlay p {
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
 
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .info-card i {
-            font-size: 3rem;
-            color: var(--dore);
-            margin-bottom: 1rem;
-        }
-
-        .info-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--bleu-nuit);
-        }
-
-        .info-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta-section {
+        /* Equipment Section */
+        .equipment-section {
             background: linear-gradient(135deg, var(--bleu-nuit), #1a1a3e);
             color: var(--blanc);
             padding: 5rem 3rem;
             border-radius: 20px;
+            margin-bottom: 5rem;
+        }
+
+        .equipment-section h2 {
             text-align: center;
-            margin-top: 4rem;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .equipment-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .equipment-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dore);
+        }
+
+        .equipment-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .equipment-card ul li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .equipment-card ul li i {
+            color: var(--dore);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gris-clair);
+            padding: 5rem 3rem;
+            border-radius: 20px;
+            text-align: center;
         }
 
         .cta-section h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--bleu-nuit);
         }
 
         .cta-section p {
             font-size: 1.2rem;
+            color: #666;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
@@ -544,11 +533,11 @@
                 display: flex;
             }
 
-            .hero-content h1 {
+            .page-header h1 {
                 font-size: 2.5rem;
             }
 
-            .gallery {
+            .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
@@ -557,7 +546,11 @@
                 height: 250px;
             }
 
-            .program-grid {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -582,12 +575,12 @@
         <nav>
             <a href="index.html" class="logo">LX<span>Photo</span></a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../booking.html">Booking</a></li>
-                <li><a href="../workshops.html" class="active">Workshops</a></li>
-                <li><a href="../portfolio.html">Portfolio</a></li>
-                <li><a href="../studio.html">Studio</a></li>
-                <li><a href="../about.html">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="studio.html" class="active">Studio</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -597,133 +590,168 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-detail">
-        <a href="../workshops.html" class="back-btn" data-aos="fade-right">
-            <i class="fas fa-arrow-left"></i> Retour
-        </a>
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Workshop Débutant</h1>
-            <p>Les fondamentaux de la photographie</p>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div data-aos="fade-up">
+            <h1>Notre Studio</h1>
+            <p>Un espace professionnel équipé pour toutes vos créations photographiques</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <section class="main-content">
         <div class="content-intro" data-aos="fade-up">
-            <h2>Apprenez les Bases de la Photographie</h2>
-            <p>Ce workshop est conçu pour les personnes qui débutent en photographie et souhaitent maîtriser rapidement les fondamentaux. En une journée intensive, vous apprendrez à sortir du mode automatique et à comprendre les réglages essentiels de votre appareil photo.</p>
-            <p>Une formation pratique et conviviale où vous mettrez immédiatement en application ce que vous apprenez.</p>
+            <h2>Bienvenue au Studio LXPhoto</h2>
+            <p>Notre studio professionnel de 120m² est spécialement conçu pour offrir un environnement optimal pour tous types de shootings. Équipé des dernières technologies d'éclairage et d'un espace modulable, nous créons ensemble les conditions parfaites pour donner vie à vos projets photographiques.</p>
+            <p>Situé au cœur de la ville, notre studio est facilement accessible et dispose de tout le confort nécessaire pour des sessions productives et agréables.</p>
         </div>
 
-        <!-- Info Cards -->
-        <!-- <div class="info-cards">
-            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-clock"></i>
-                <h3>Durée</h3>
-                <p>4 heures de formation intensive</p>
-            </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-users"></i>
-                <h3>Groupe</h3>
-                <p>Maximum 6 participants</p>
-            </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-book"></i>
-                <h3>Support</h3>
-                <p>Manuel de cours inclus</p>
-            </div>
-            <div class="info-card" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-euro-sign"></i>
-                <h3>Tarif</h3>
-                <p>80€ par personne</p>
-            </div>
-        </div> -->
-
-        <!-- Program Section -->
-        <!-- <div class="program-section" data-aos="fade-up">
-            <h3>Programme de la Formation</h3>
-            <div class="program-grid">
-                <div class="program-item">
-                    <h4><i class="fas fa-lightbulb"></i> Théorie Photo</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Le triangle d'exposition (ISO, Ouverture, Vitesse)</li>
-                        <li><i class="fas fa-check"></i> La profondeur de champ</li>
-                        <li><i class="fas fa-check"></i> Balance des blancs</li>
-                        <li><i class="fas fa-check"></i> Modes de mesure</li>
-                    </ul>
+        <!-- Features Section -->
+        <div class="features-section" data-aos="fade-up">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <h3>Grand Espace</h3>
+                    <p>120m² modulables avec plafonds de 4m de hauteur</p>
                 </div>
 
-                <div class="program-item">
-                    <h4><i class="fas fa-camera"></i> Composition</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Règle des tiers</li>
-                        <li><i class="fas fa-check"></i> Lignes directrices</li>
-                        <li><i class="fas fa-check"></i> Cadrage et perspective</li>
-                        <li><i class="fas fa-check"></i> Gestion de la lumière naturelle</li>
-                    </ul>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Éclairage Pro</h3>
+                    <p>Système complet de flashs et lumière continue</p>
                 </div>
 
-                <div class="program-item">
-                    <h4><i class="fas fa-running"></i> Pratique</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Exercices en extérieur</li>
-                        <li><i class="fas fa-check"></i> Shooting supervisé</li>
-                        <li><i class="fas fa-check"></i> Analyse des photos</li>
-                        <li><i class="fas fa-check"></i> Conseils personnalisés</li>
-                    </ul>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Fonds Variés</h3>
+                    <p>10+ fonds de couleurs et textures différentes</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3>Espace Détente</h3>
+                    <p>Coin repos avec rafraîchissements et wifi</p>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- Gallery -->
         <div data-aos="fade-up">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--bleu-nuit);">Galerie Workshop Débutant</h2>
-            <div class="gallery">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--bleu-nuit);">Découvrez Notre Studio</h2>
+            <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600" alt="Workshop 1">
+                    <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?w=600" alt="Studio 1">
                     <div class="gallery-overlay">
-                        <p>Apprentissage des réglages</p>
+                        <h3>Espace Principal</h3>
+                        <p>Zone de shooting principale avec cyclorama</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600" alt="Workshop 2">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Studio 2">
                     <div class="gallery-overlay">
-                        <p>Exercices de composition</p>
+                        <h3>Setup Éclairage</h3>
+                        <p>Configuration professionnelle multi-sources</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600" alt="Workshop 3">
+                    <img src="https://images.unsplash.com/photo-1598659840835-3e6d7c5e1847?w=600" alt="Studio 3">
                     <div class="gallery-overlay">
-                        <p>Session pratique</p>
+                        <h3>Zone Portrait</h3>
+                        <p>Espace dédié aux portraits studio</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=600" alt="Workshop 4">
+                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?w=600" alt="Studio 4">
                     <div class="gallery-overlay">
-                        <p>Groupe d'apprentissage</p>
+                        <h3>Équipement Photo</h3>
+                        <p>Matériel professionnel de dernière génération</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?w=600" alt="Workshop 5">
+                    <img src="https://images.unsplash.com/photo-1604537529586-054fa7d7fd0d?w=600" alt="Studio 5">
                     <div class="gallery-overlay">
-                        <p>Prise de vue extérieure</p>
+                        <h3>Station de Retouche</h3>
+                        <p>Poste de travail avec écran calibré</p>
                     </div>
                 </div>
+
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=600" alt="Workshop 6">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Studio 6">
                     <div class="gallery-overlay">
-                        <p>Analyse des résultats</p>
+                        <h3>Loge & Maquillage</h3>
+                        <p>Espace préparation avec miroir éclairé</p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment Section -->
+        <div class="equipment-section" data-aos="fade-up">
+            <h2>Notre Équipement</h2>
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <h3><i class="fas fa-camera"></i> Caméras & Objectifs</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Canon EOS R5</li>
+                        <li><i class="fas fa-check"></i> Sony A7R IV</li>
+                        <li><i class="fas fa-check"></i> Objectifs 24-70mm f/2.8</li>
+                        <li><i class="fas fa-check"></i> Objectifs 70-200mm f/2.8</li>
+                        <li><i class="fas fa-check"></i> Objectifs prime 35mm, 50mm, 85mm</li>
+                    </ul>
+                </div>
+
+                <div class="equipment-card">
+                    <h3><i class="fas fa-bolt"></i> Éclairage Studio</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 4x Flashs Profoto B10</li>
+                        <li><i class="fas fa-check"></i> 2x Lumières continues LED</li>
+                        <li><i class="fas fa-check"></i> Softboxes (60x90, 120x120)</li>
+                        <li><i class="fas fa-check"></i> Parapluies réflecteurs</li>
+                        <li><i class="fas fa-check"></i> Nids d'abeille et gels couleur</li>
+                    </ul>
+                </div>
+
+                <div class="equipment-card">
+                    <h3><i class="fas fa-tools"></i> Accessoires</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Pieds studio robustes</li>
+                        <li><i class="fas fa-check"></i> Réflecteurs 5-en-1</li>
+                        <li><i class="fas fa-check"></i> Déclencheurs sans fil</li>
+                        <li><i class="fas fa-check"></i> Ventilateur à cheveux</li>
+                        <li><i class="fas fa-check"></i> Props et accessoires divers</li>
+                    </ul>
+                </div>
+
+                <div class="equipment-card">
+                    <h3><i class="fas fa-image"></i> Post-Production</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> iMac 27" écran calibré</li>
+                        <li><i class="fas fa-check"></i> Adobe Creative Suite</li>
+                        <li><i class="fas fa-check"></i> Capture One Pro</li>
+                        <li><i class="fas fa-check"></i> Tablette graphique Wacom</li>
+                        <li><i class="fas fa-check"></i> Livraison fichiers RAW + JPG</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- CTA Section -->
         <div class="cta-section" data-aos="zoom-in">
-            <h2>Prêt à Commencer ?</h2>
-            <p>Rejoignez notre prochain workshop et commencez votre aventure photographique</p>
-            <a href="#" class="btn">Contactez-nous</a>
+            <h2>Prêt à Créer ?</h2>
+            <p>Réservez une session dans notre studio professionnel et donnez vie à vos projets photographiques dans les meilleures conditions.</p>
+            <a href="booking.html" class="btn">Réserver le Studio</a>
         </div>
     </section>
 
@@ -752,7 +780,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="../asset/js/image-protection.js"></script>
+    <script src="./asset/js/image-protection.js"></script>
     <script>
         // Initialize AOS
         AOS.init({

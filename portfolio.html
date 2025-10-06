@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LXPhoto - Workshops</title>
+    <title>LXPhoto - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./asset/css/custom-alert.css">
     <style>
         * {
             margin: 0;
@@ -24,8 +23,8 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            color: var(--bleu-nuit);
-            background: #000;
+            color: var(--blanc);
+            background: #000000;
             overflow-x: hidden;
         }
 
@@ -38,7 +37,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: #000;
+            background: #000000;
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1.5rem 5%;
@@ -198,8 +197,6 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.8s ease;
-            user-select: none;
-            -webkit-user-drag: none;
         }
 
         .category-card:hover .category-image {
@@ -222,17 +219,18 @@
             padding: 4rem 2.5rem;
         }
 
-        .category-badge {
-            display: inline-block;
-            background: var(--dore);
-            color: var(--blanc);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+        .category-icon {
+            font-size: 3rem;
+            color: var(--dore);
             margin-bottom: 1rem;
-            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .category-card:hover .category-icon {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .category-title {
@@ -257,29 +255,19 @@
             transform: translateY(0);
         }
 
-        .category-features {
-            list-style: none;
+        .category-count {
+            font-size: 0.95rem;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.5s ease 0.2s;
-        }
-
-        .category-card:hover .category-features {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .category-features li {
-            padding: 0.5rem 0;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            font-size: 0.95rem;
+            gap: 0.5rem;
         }
 
-        .category-features li i {
-            color: var(--dore);
-            font-size: 0.9rem;
+        .category-card:hover .category-count {
+            opacity: 0.9;
+            transform: translateY(0);
         }
 
         .category-arrow {
@@ -305,19 +293,30 @@
             transform: rotate(0deg) scale(1);
         }
 
-        .category-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dore);
-            margin-top: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease 0.3s;
+        /* Stats Section */
+        .stats-section {
+            background: var(--gris-clair);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            margin-top: 5rem;
         }
 
-        .category-card:hover .category-price {
-            opacity: 1;
-            transform: translateY(0);
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--dore);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            color: #666;
         }
 
         /* Footer */
@@ -404,6 +403,11 @@
             .category-title {
                 font-size: 2rem;
             }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
@@ -415,8 +419,8 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="booking.html">Booking</a></li>
-                <li><a href="workshops.html" class="active">Workshops</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="studio.html">Studio</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -431,73 +435,95 @@
     <!-- Page Header -->
     <section class="page-header">
         <div data-aos="fade-up">
-            <h1>Workshops</h1>
-            <p>Apprenez l'art de la photographie avec des formations adaptées à tous les niveaux</p>
+            <h1>Portfolio</h1>
+            <p>Découvrez mes créations à travers différents univers photographiques</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <section class="main-content">
         <div class="section-intro" data-aos="fade-up">
-            <h2>Formations Photographiques</h2>
-            <p>Que vous soyez débutant ou photographe confirmé, nos workshops sont conçus pour vous faire progresser rapidement. Apprenez les techniques professionnelles dans une ambiance conviviale et pratique.</p>
+            <h2>Mes Univers Photographiques</h2>
+            <p>Chaque catégorie représente une passion, un style, une vision unique de la photographie. Explorez mes différents travaux et laissez-vous inspirer.</p>
         </div>
 
         <div class="category-grid">
-            <!-- Débutant Card -->
-            <div class="category-card" data-aos="zoom-in" data-aos-delay="100" onclick="window.location.href='./workshops/workshop_debutant.html'">
-                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" alt="Débutant" class="category-image">
+            <!-- Portrait Card -->
+            <div class="category-card" data-aos="zoom-in" data-aos-delay="100" onclick="window.location.href='./portfolio/portfolio_portrait.html'">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800" alt="Portraits" class="category-image">
                 <div class="category-arrow">
                     <i class="fas fa-arrow-right"></i>
                 </div>
                 <div class="category-overlay">
-                    <span class="category-badge">Niveau 1</span>
-                    <h3 class="category-title">Débutant</h3>
-                    <p class="category-description">Maîtrisez les fondamentaux de la photographie : exposition, composition, lumière naturelle et réglages de base de votre appareil.</p>
-                    <ul class="category-features">
-                        <li><i class="fas fa-check"></i> Durée : 4h (1 journée)</li>
-                        <li><i class="fas fa-check"></i> Groupe max : 6 personnes</li>
-                        <li><i class="fas fa-check"></i> Théorie + Pratique</li>
-                        <li><i class="fas fa-check"></i> Support de cours inclus</li>
-                    </ul>
+                    <div class="category-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="category-title">Portraits</h3>
+                    <p class="category-description">L'essence de l'âme humaine capturée à travers des portraits authentiques et émotionnels qui racontent une histoire unique.</p>
+                    <div class="category-count">
+                        <i class="fas fa-images"></i>
+                        <span>24 photos</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Avancé Card -->
-            <div class="category-card" data-aos="zoom-in" data-aos-delay="200" onclick="window.location.href='./workshops/workshop_avance.html'">
-                <img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=800" alt="Avancé" class="category-image">
+            <!-- Paysage Card -->
+            <div class="category-card" data-aos="zoom-in" data-aos-delay="200" onclick="window.location.href='./portfolio/portfolio_paysage.html'">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Paysages" class="category-image">
                 <div class="category-arrow">
                     <i class="fas fa-arrow-right"></i>
                 </div>
                 <div class="category-overlay">
-                    <span class="category-badge">Niveau 2</span>
-                    <h3 class="category-title">Avancé</h3>
-                    <p class="category-description">Perfectionnez vos techniques avec la post-production avancée, l'éclairage créatif et le développement de votre style personnel.</p>
-                    <ul class="category-features">
-                        <li><i class="fas fa-check"></i> Durée : 6h (1 journée)</li>
-                        <li><i class="fas fa-check"></i> Groupe max : 5 personnes</li>
-                        <li><i class="fas fa-check"></i> Lightroom & Photoshop</li>
-                        <li><i class="fas fa-check"></i> Techniques pro incluses</li>
-                    </ul>
+                    <div class="category-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="category-title">Paysages</h3>
+                    <p class="category-description">La beauté brute de la nature immortalisée dans des compositions époustouflantes qui évoquent l'émerveillement et la sérénité.</p>
+                    <div class="category-count">
+                        <i class="fas fa-images"></i>
+                        <span>18 photos</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Studio Card -->
-            <div class="category-card" data-aos="zoom-in" data-aos-delay="300" onclick="window.location.href='./workshops/workshop_studio.html'">
-                <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800" alt="Studio" class="category-image">
+            <!-- Street Card -->
+            <div class="category-card" data-aos="zoom-in" data-aos-delay="300" onclick="window.location.href='./portfolio/portfolio_rue.html'">
+                <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800" alt="Street" class="category-image">
                 <div class="category-arrow">
                     <i class="fas fa-arrow-right"></i>
                 </div>
                 <div class="category-overlay">
-                    <span class="category-badge">Niveau 3</span>
-                    <h3 class="category-title">Studio</h3>
-                    <p class="category-description">Maîtrise complète de l'éclairage studio, des modificateurs de lumière et des techniques avancées de portrait professionnel.</p>
-                    <ul class="category-features">
-                        <li><i class="fas fa-check"></i> Durée : 8h (1 journée)</li>
-                        <li><i class="fas fa-check"></i> Groupe max : 4 personnes</li>
-                        <li><i class="fas fa-check"></i> Équipements studio inclus</li>
-                        <li><i class="fas fa-check"></i> Modèle professionnel</li>
-                    </ul>
+                    <div class="category-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="category-title">Street</h3>
+                    <p class="category-description">La vie urbaine capturée dans son authenticité : moments spontanés, scènes de rue et l'énergie vibrante de la ville.</p>
+                    <div class="category-count">
+                        <i class="fas fa-images"></i>
+                        <span>21 photos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section" data-aos="fade-up">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Photos réalisées</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Clients satisfaits</p>
+                </div>
+                <div class="stat-item">
+                    <h3>8+</h3>
+                    <p>Années d'expérience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>Projets créatifs</p>
                 </div>
             </div>
         </div>
@@ -516,24 +542,12 @@
         </div>
     </footer>
 
-    <!-- Custom Alert Modal -->
-    <div class="alert-overlay" id="alertOverlay"></div>
-    <div class="custom-alert" id="customAlert">
-        <div class="custom-alert-icon">
-            <i class="fas fa-shield-alt"></i>
-        </div>
-        <h3 class="custom-alert-title">Image Protégée</h3>
-        <p class="custom-alert-message">Cette image est protégée par des droits d'auteur. Toute reproduction est interdite.</p>
-        <button class="custom-alert-btn" onclick="closeCustomAlert()">Compris</button>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="./asset/js/image-protection.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
             duration: 800,
-            once: false
+            once: true
         });
 
         // Header scroll effect

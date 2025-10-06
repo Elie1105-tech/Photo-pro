@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LXPhoto - Session Sensuelle</title>
+    <title>LXPhoto - Workshop Avancé</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../asset/css/custom-alert.css">
     <style>
         * {
             margin: 0;
@@ -122,8 +121,8 @@
         /* Hero Section */
         .hero-detail {
             height: 60vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                        url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1920') center/cover;
+            background: linear-gradient(rgba(10, 10, 35, 0.5), rgba(10, 10, 35, 0.5)),
+                        url('https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=1920') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -208,43 +207,84 @@
             margin-bottom: 1rem;
         }
 
-        /* Trust Section */
-        .trust-section {
-            background: var(--gris-clair);
-            padding: 3rem;
-            border-radius: 20px;
-            margin-bottom: 5rem;
+        /* Prerequisites Section */
+        .prerequisites {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 4rem;
             border-left: 5px solid var(--dore);
         }
 
-        .trust-section h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+        .prerequisites h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
             color: var(--bleu-nuit);
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .trust-section h3 i {
+        .prerequisites h3 i {
             color: var(--dore);
         }
 
-        .trust-section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .trust-section ul li {
-            padding: 1rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .prerequisites p {
             color: #555;
             line-height: 1.6;
         }
 
-        .trust-section ul li i {
+        /* Program Section */
+        .program-section {
+            background: var(--gris-clair);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            margin-bottom: 5rem;
+        }
+
+        .program-section h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--bleu-nuit);
+            text-align: center;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-item {
+            background: var(--blanc);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .program-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dore);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .program-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .program-item ul li {
+            padding: 0.8rem 0;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .program-item ul li i {
             color: var(--dore);
             margin-top: 0.3rem;
         }
@@ -259,7 +299,7 @@
 
         .gallery-item {
             position: relative;
-            height: 300px;
+            height: 400px;
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
@@ -277,8 +317,6 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.8s ease;
-            user-select: none;
-            -webkit-user-drag: none;
         }
 
         .gallery-item:hover img {
@@ -299,110 +337,6 @@
 
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
-        }
-
-        /* Contact Form Section */
-        .form-section {
-            background: #000000;
-            padding: 5rem 0;
-            margin-top: 4rem;
-        }
-
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .form-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--bleu-nuit);
-        }
-
-        .form-header p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .contact-form {
-            background: var(--blanc);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            color: var(--bleu-nuit);
-            font-size: 1rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--gris-clair);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--dore);
-            background: var(--blanc);
-            box-shadow: 0 0 0 4px rgba(196, 155, 58, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1.3rem;
-            background: var(--dore);
-            color: var(--blanc);
-            border: 2px solid var(--dore);
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .btn-submit:hover {
-            background: transparent;
-            color: var(--dore);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(196, 155, 58, 0.3);
         }
 
         /* Info Cards */
@@ -441,6 +375,47 @@
         .info-card p {
             color: #666;
             line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bleu-nuit), #1a1a3e);
+            color: var(--blanc);
+            padding: 5rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--dore);
+            color: var(--blanc);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dore);
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--dore);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 155, 58, 0.3);
         }
 
         /* Footer */
@@ -486,6 +461,94 @@
             transform: translateY(-5px);
         }
 
+        /* Custom Alert Modal */
+        .custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 2.5rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            text-align: center;
+            min-width: 400px;
+            border: 2px solid var(--dore);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .custom-alert.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .custom-alert-icon {
+            font-size: 4rem;
+            color: var(--dore);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .custom-alert-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blanc);
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .custom-alert-message {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .custom-alert-btn {
+            background: var(--dore);
+            color: var(--blanc);
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .custom-alert-btn:hover {
+            background: #d4a84a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(196, 155, 58, 0.4);
+        }
+
+        .alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .alert-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -521,12 +584,21 @@
                 height: 250px;
             }
 
-            .form-row {
+            .program-grid {
                 grid-template-columns: 1fr;
             }
 
-            .contact-form {
-                padding: 2rem 1.5rem;
+            .custom-alert {
+                min-width: 90%;
+                padding: 2rem;
+            }
+            
+            .custom-alert-icon {
+                font-size: 3rem;
+            }
+            
+            .custom-alert-title {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -538,8 +610,8 @@
             <a href="index.html" class="logo">LX<span>Photo</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../booking.html" class="active">Booking</a></li>
-                <li><a href="../workshops.html">Workshops</a></li>
+                <li><a href="../booking.html">Booking</a></li>
+                <li><a href="../workshops.html" class="active">Workshops</a></li>
                 <li><a href="../portfolio.html">Portfolio</a></li>
                 <li><a href="../studio.html">Studio</a></li>
                 <li><a href="../about.html">About</a></li>
@@ -554,176 +626,137 @@
 
     <!-- Hero Section -->
     <section class="hero-detail">
-        <a href="../booking.html" class="back-btn" data-aos="fade-right">
+        <a href="../workshops.html" class="back-btn" data-aos="fade-right">
             <i class="fas fa-arrow-left"></i> Retour
         </a>
         <div class="hero-content" data-aos="fade-up">
-            <h1>Session Sensuelle</h1>
-            <p>Art, élégance et respect dans un cadre intimiste</p>
+            <h1>Workshop Avancé</h1>
+            <p>Post-production et techniques créatives</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <section class="main-content">
         <div class="content-intro" data-aos="fade-up">
-            <h2>Photographie Sensuelle Artistique</h2>
-            <p>Une séance photo sensuelle est une expérience de confiance, d'élégance et de célébration de soi. Dans un environnement privé, respectueux et bienveillant, nous créons ensemble des images artistiques qui capturent votre beauté, votre force et votre sensualité de manière raffinée.</p>
-            <p>Chaque session est entièrement personnalisée selon vos envies et votre niveau de confort. Vous gardez le contrôle total de la séance, du style aux poses, dans une atmosphère détendue et professionnelle.</p>
+            <h2>Perfectionnez Votre Art</h2>
+            <p>Ce workshop est destiné aux photographes ayant déjà une bonne maîtrise des bases et souhaitant développer leur style personnel. Vous apprendrez les techniques avancées de post-production, l'éclairage créatif et comment donner une signature unique à vos images.</p>
+            <p>Une journée intensive dédiée à l'excellence photographique et au développement de votre vision artistique.</p>
         </div>
 
-        <!-- Trust Section -->
-        <div class="trust-section" data-aos="fade-up">
-            <h3><i class="fas fa-shield-alt"></i> Votre confort et votre sécurité sont prioritaires</h3>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> Studio privé et sécurisé, accessible uniquement sur rendez-vous</li>
-                <li><i class="fas fa-check-circle"></i> Possibilité de venir accompagné(e) d'une personne de confiance</li>
-                <li><i class="fas fa-check-circle"></i> Aucune pression, vous décidez de tout : poses, tenues, limite</li>
-                <li><i class="fas fa-check-circle"></i> Confidentialité absolue garantie par contrat</li>
-                <li><i class="fas fa-check-circle"></i> Vous gardez tous les droits sur vos images</li>
-                <li><i class="fas fa-check-circle"></i> Ambiance musicale relaxante et climatisation confortable</li>
-            </ul>
+        <!-- Prerequisites -->
+        <div class="prerequisites" data-aos="fade-up">
+            <h3><i class="fas fa-info-circle"></i> Prérequis</h3>
+            <p>Ce workshop s'adresse aux photographes ayant déjà une bonne connaissance des réglages manuels (ISO, ouverture, vitesse) et maîtrisant les bases de la composition. Vous devez apporter votre ordinateur portable avec Lightroom et/ou Photoshop installés.</p>
         </div>
 
         <!-- Info Cards -->
-        <div class="info-cards">
+        <!-- <div class="info-cards">
             <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-clock"></i>
                 <h3>Durée</h3>
-                <p>Session de 2h pour un moment sans précipitation</p>
+                <p>6 heures de formation intensive</p>
             </div>
             <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-images"></i>
-                <h3>Photos</h3>
-                <p>40 à 50 photos retouchées artistiquement</p>
+                <i class="fas fa-users"></i>
+                <h3>Groupe</h3>
+                <p>Maximum 5 participants</p>
             </div>
             <div class="info-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-lock"></i>
-                <h3>Confidentialité</h3>
-                <p>Studio privé, discrétion garantie</p>
+                <i class="fas fa-laptop"></i>
+                <h3>Logiciels</h3>
+                <p>Lightroom & Photoshop</p>
             </div>
             <div class="info-card" data-aos="fade-up" data-aos-delay="400">
                 <i class="fas fa-euro-sign"></i>
                 <h3>Tarif</h3>
-                <p>200€ la session complète</p>
+                <p>150€ par personne</p>
             </div>
-        </div>
+        </div> -->
+
+        <!-- Program Section -->
+        <!-- <div class="program-section" data-aos="fade-up">
+            <h3>Programme de la Formation</h3>
+            <div class="program-grid">
+                <div class="program-item">
+                    <h4><i class="fas fa-palette"></i> Post-Production</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Workflow Lightroom professionnel</li>
+                        <li><i class="fas fa-check"></i> Retouches avancées Photoshop</li>
+                        <li><i class="fas fa-check"></i> Gestion des couleurs</li>
+                        <li><i class="fas fa-check"></i> Création de presets personnalisés</li>
+                    </ul>
+                </div>
+
+                <div class="program-item">
+                    <h4><i class="fas fa-sun"></i> Éclairage Créatif</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Éclairage à la lumière disponible</li>
+                        <li><i class="fas fa-check"></i> Flash déporté et créatif</li>
+                        <li><i class="fas fa-check"></i> Gestion des contrastes</li>
+                        <li><i class="fas fa-check"></i> Ambiances et atmosphères</li>
+                    </ul>
+                </div>
+
+                <div class="program-item">
+                    <h4><i class="fas fa-star"></i> Style Personnel</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Développer sa signature visuelle</li>
+                        <li><i class="fas fa-check"></i> Analyser les grands photographes</li>
+                        <li><i class="fas fa-check"></i> Cohérence de portfolio</li>
+                        <li><i class="fas fa-check"></i> Direction artistique</li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
 
         <!-- Gallery -->
         <div data-aos="fade-up">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--bleu-nuit);">Galerie Sensuelle</h2>
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--bleu-nuit);">Galerie Workshop Avancé</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600" alt="Sensuel 1">
+                    <img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=600" alt="Workshop Avancé 1">
                     <div class="gallery-overlay">
-                        <p>Portrait intimiste élégant</p>
+                        <p>Techniques de post-production</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600" alt="Sensuel 2">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600" alt="Workshop Avancé 2">
                     <div class="gallery-overlay">
-                        <p>Lumière naturelle douce</p>
+                        <p>Travail sur Lightroom</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600" alt="Sensuel 3">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600" alt="Workshop Avancé 3">
                     <div class="gallery-overlay">
-                        <p>Silhouette artistique</p>
+                        <p>Éclairage créatif</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600" alt="Sensuel 4">
+                    <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=600" alt="Workshop Avancé 4">
                     <div class="gallery-overlay">
-                        <p>Portrait sensibilité</p>
+                        <p>Session de groupe</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600" alt="Sensuel 5">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600" alt="Workshop Avancé 5">
                     <div class="gallery-overlay">
-                        <p>Ombre et lumière</p>
+                        <p>Pratique avancée</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600" alt="Sensuel 6">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600" alt="Workshop Avancé 6">
                     <div class="gallery-overlay">
-                        <p>Élégance naturelle</p>
+                        <p>Retouche professionnelle</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Contact Form Section -->
-    <section class="form-section">
-        <div class="form-container">
-            <div class="form-header" data-aos="fade-up">
-                <h2>Réservez votre session</h2>
-                <p>Toutes les demandes sont traitées avec la plus grande confidentialité</p>
-            </div>
-
-            <form class="contact-form" data-aos="fade-up" data-aos-delay="100">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Prénom *</label>
-                        <input type="text" required placeholder="Votre prénom">
-                    </div>
-                    <div class="form-group">
-                        <label>Nom</label>
-                        <input type="text" placeholder="Optionnel">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input type="email" required placeholder="votre@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Téléphone *</label>
-                        <input type="tel" required placeholder="+261 XX XX XXX XX">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Date souhaitée *</label>
-                        <input type="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Heure préférée *</label>
-                        <select required>
-                            <option value="">Sélectionnez</option>
-                            <option value="matin">Matin (9h-12h)</option>
-                            <option value="apres-midi">Après-midi (14h-17h)</option>
-                            <option value="soir">Soirée (18h-21h)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Accompagnement</label>
-                    <select>
-                        <option value="">Sélectionnez</option>
-                        <option value="seul">Seul(e)</option>
-                        <option value="accompagne">Accompagné(e) d'une personne</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Avez-vous déjà fait une séance photo sensuelle ?</label>
-                    <select>
-                        <option value="">Sélectionnez</option>
-                        <option value="oui">Oui</option>
-                        <option value="non">Non, c'est ma première fois</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Votre vision / Style souhaité</label>
-                    <textarea placeholder="Parlez-nous de vos attentes, du style que vous recherchez, de vos inspirations... Toute information qui peut nous aider à créer la séance parfaite pour vous."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">Envoyer la demande confidentielle</button>
-            </form>
+        <!-- CTA Section -->
+        <div class="cta-section" data-aos="zoom-in">
+            <h2>Passez au Niveau Supérieur</h2>
+            <p>Développez votre style unique et maîtrisez les techniques professionnelles</p>
+            <a href="about.html" class="btn">Contactez-nous</a>
         </div>
     </section>
 
@@ -757,7 +790,7 @@
         // Initialize AOS
         AOS.init({
             duration: 800,
-            once: false
+            once: true
         });
 
         // Header scroll effect
@@ -776,13 +809,6 @@
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Merci pour votre confiance. Nous vous recontacterons très prochainement en toute discrétion.');
-            e.target.reset();
         });
     </script>
 </body>
