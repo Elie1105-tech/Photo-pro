@@ -14,7 +14,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: var(--bleu-nuit);
-    background: url('/asset/images/hexa_dan_wave_10.jpg') no-repeat center center fixed;
+    background: #000000 url('./asset/images/hexa_dan_wave_10.jpg') no-repeat center center fixed;
     background-size: cover;
     overflow-x: hidden;
 }
