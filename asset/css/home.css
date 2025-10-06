@@ -14,12 +14,19 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: var(--bleu-nuit);
-    background: var(--blanc);
+    background: url('/asset/images/hexa_dan_wave_10.jpg') no-repeat center center fixed;
+    background-size: cover;
     overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
     font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Header Sticky */
@@ -144,7 +151,7 @@ nav {
 /* Cards Section */
 .cards-section {
     padding: 6rem 5%;
-    background: #000000;
+    /* background: #000000; */
 }
 
 .hero-cards {
