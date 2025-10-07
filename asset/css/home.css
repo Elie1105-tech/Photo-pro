@@ -37,6 +37,7 @@ header {
     background: #000000;
     backdrop-filter: blur(10px);
     z-index: 1000;
+    padding: 1.5rem 5%;
     transition: padding 0.3s ease;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
