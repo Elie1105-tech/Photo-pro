@@ -37,13 +37,15 @@ header {
     background: #000000;
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 1.5rem 5%;
     transition: padding 0.3s ease;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header.scrolled {
     padding: 1rem 5%;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 nav {
@@ -168,12 +170,12 @@ nav {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    box-shadow: 15px 8px 15px rgba(0, 0, 0, 0.95);
     height: 400px;
 }
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(196, 155, 58, 0.4);
+    /* box-shadow: 0 25px 50px rgba(196, 155, 58, 0.4); */
 }
 
 .card-image {

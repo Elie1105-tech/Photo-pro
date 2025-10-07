@@ -50,11 +50,14 @@
             z-index: 1000;
             padding: 1.5rem 5%;
             transition: padding 0.3s ease;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         header.scrolled {
             padding: 1rem 5%;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         nav {
@@ -192,13 +195,13 @@
             border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 15px 8px 15px rgba(0, 0, 0, 0.95);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .category-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(196, 155, 58, 0.4);
+            transform: translateY(-8px) scale(1.02);
+            /* box-shadow: 35px 35px 60px rgba(0,0,0,1); */
         }
 
         .category-image {

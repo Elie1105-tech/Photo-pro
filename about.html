@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXPhoto - À Propos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/css/custom-alert.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bleu-nuit: #2d2d2d;
+            --blanc: #FFFFFF;
+            --dore: #C49B3A;
+            --gris-clair: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--blanc);
+            background: #000000 url('./asset/images/hexa_dan_wave_10.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        p {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Header Sticky */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #000000;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            transition: padding 0.3s ease;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blanc);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--dore);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--blanc);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dore);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--dore);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--blanc);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(10, 10, 35, 0.6), rgba(10, 10, 35, 0.6)),
+                        url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanc);
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .about-image-container {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--dore);
+            color: var(--blanc);
+            padding: 2rem;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(196, 155, 58, 0.4);
+        }
+
+        .about-image-badge strong {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .about-image-badge span {
+            font-size: 0.85rem;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--bleu-nuit);
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--dore);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-signature {
+            font-family: 'Poppins', cursive;
+            font-size: 2rem;
+            color: var(--dore);
+            margin: 2rem 0;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .social-links a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gris-clair);
+            color: var(--bleu-nuit);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--dore);
+            color: var(--blanc);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(196, 155, 58, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--dore);
+            color: var(--blanc);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dore);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--dore);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 155, 58, 0.3);
+        }
+
+        /* Values Section */
+        .values-section {
+            background: var(--gris-clair);
+            padding: 5rem 3rem;
+            border-radius: 20px;
+            margin-bottom: 6rem;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--bleu-nuit);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--dore);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--blanc);
+            font-size: 2rem;
+        }
+
+        .value-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--bleu-nuit);
+        }
+
+        .value-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 6rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--dore);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bleu-nuit), #1a1a3e);
+            color: var(--blanc);
+            padding: 5rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-light {
+            background: var(--blanc);
+            color: var(--bleu-nuit);
+            border-color: var(--blanc);
+        }
+
+        .btn-light:hover {
+            background: transparent;
+            color: var(--blanc);
+            border-color: var(--blanc);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bleu-nuit);
+            color: var(--blanc);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-social a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--blanc);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--dore);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--bleu-nuit);
+                width: 100%;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./asset/css/image-protection.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">LX<span>Photo</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div data-aos="fade-up">
+            <h1>À Propos</h1>
+            <p>Derrière l'objectif, une passion pour capturer l'authenticité</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="about-image-container" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600" alt="Photographe" class="about-image">
+                <div class="about-image-badge">
+                    <strong>8+</strong>
+                    <span>Années d'expérience</span>
+                </div>
+            </div>
+
+            <div class="about-text" data-aos="fade-left">
+                <h2>Alexandre Laurent</h2>
+                <h3>Photographe Professionnel & Formateur</h3>
+                
+                <p>Passionné de photographie depuis plus de 8 ans, j'ai transformé ma passion en métier pour capturer les moments authentiques et créer des images qui racontent des histoires.</p>
+                
+                <p>Mon parcours m'a mené de la photographie de rue aux portraits studio, en passant par les paysages et l'événementiel. Chaque projet est pour moi une opportunité unique de créer quelque chose d'exceptionnel en collaboration avec mes clients.</p>
+                
+                <p>Au-delà de la création, je partage mon expertise à travers des workshops pour transmettre ma passion et aider les photographes de tous niveaux à développer leur art.</p>
+
+                <div class="about-signature">Alexandre</div>
+
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <a href="booking.html" class="btn">Réserver une Session</a>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section" data-aos="fade-up">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Photos créées</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Clients satisfaits</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Workshops donnés</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Projets créatifs</div>
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <div class="values-section" data-aos="fade-up">
+            <h2>Mes Valeurs</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Authenticité</h3>
+                    <p>Je privilégie les moments vrais et naturels, capturant l'essence même de chaque personne et situation.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Chaque photo est travaillée avec soin pour offrir un résultat professionnel et exceptionnel.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>Je crois en une approche collaborative où chaque client participe activement à la création.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Créativité</h3>
+                    <p>Toujours à la recherche de nouvelles perspectives et techniques pour des résultats uniques.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section" data-aos="zoom-in">
+            <h2>Travaillons Ensemble</h2>
+            <p>Que vous ayez besoin d'un portrait professionnel, d'une séance créative ou que vous souhaitiez apprendre la photographie, je suis là pour vous accompagner dans votre projet.</p>
+            <a href="booking.html" class="btn btn-light">Réserver Maintenant</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 LXPhoto. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Alert Modal -->
+    <div class="alert-overlay" id="alertOverlay"></div>
+    <div class="custom-alert" id="customAlert">
+        <div class="custom-alert-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="custom-alert-title">Image Protégée</h3>
+        <p class="custom-alert-message">Cette image est protégée par des droits d'auteur. Toute reproduction est interdite.</p>
+        <button class="custom-alert-btn" onclick="closeCustomAlert()">Compris</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="./asset/js/image-protection.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Protection des images
+        // Bloquer le clic droit sur les images
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Bloquer les raccourcis clavier de sauvegarde
+        document.addEventListener('keydown', function(e) {
+            // Bloquer Ctrl+S, Ctrl+Shift+S
+            if ((e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 's')) {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquer F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Bloquer le drag des images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -50,11 +50,14 @@
             z-index: 1000;
             padding: 1.5rem 5%;
             transition: padding 0.3s ease;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         header.scrolled {
             padding: 1rem 5%;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         nav {
@@ -270,13 +273,12 @@
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 15px 8px 15px rgba(0, 0, 0, 0.95);
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(196, 155, 58, 0.3);
         }
 
         .gallery-item img {
@@ -439,6 +441,12 @@
             margin-bottom: 1rem;
         }
 
+        .info-card .devise {
+            font-size: 3rem;
+            color: var(--dore);
+            margin-bottom: 1rem;
+        }
+
         .info-card h3 {
             font-size: 1.3rem;
             margin-bottom: 0.8rem;
@@ -579,7 +587,7 @@
         </div>
 
         <!-- Trust Section -->
-        <div class="trust-section" data-aos="fade-up">
+        <!-- <div class="trust-section" data-aos="fade-up">
             <h3><i class="fas fa-shield-alt"></i> Votre confort et votre sécurité sont prioritaires</h3>
             <ul>
                 <li><i class="fas fa-check-circle"></i> Studio privé et sécurisé, accessible uniquement sur rendez-vous</li>
@@ -589,10 +597,10 @@
                 <li><i class="fas fa-check-circle"></i> Vous gardez tous les droits sur vos images</li>
                 <li><i class="fas fa-check-circle"></i> Ambiance musicale relaxante et climatisation confortable</li>
             </ul>
-        </div>
+        </div> -->
 
         <!-- Info Cards -->
-        <!-- <div class="info-cards">
+        <div class="info-cards">
             <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-clock"></i>
                 <h3>Durée</h3>
@@ -609,11 +617,11 @@
                 <p>Studio privé, discrétion garantie</p>
             </div>
             <div class="info-card" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-euro-sign"></i>
+                <p class="devise">Ar</p>
                 <h3>Tarif</h3>
                 <p>200€ la session complète</p>
             </div>
-        </div> -->
+        </div>
 
         <!-- Gallery -->
         <div data-aos="fade-up">

@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/image-protection.css">
 </head>
 <body>
     <!-- Header -->
@@ -135,6 +136,39 @@
             card.addEventListener('click', () => {
                 const pages = ['booking.html', 'workshops.html', 'portfolio.html', 'studio.html'];
                 window.location.href = pages[index];
+            });
+        });
+
+        // Protection des images
+        // Bloquer le clic droit sur les images
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Bloquer les raccourcis clavier de sauvegarde
+        document.addEventListener('keydown', function(e) {
+            // Bloquer Ctrl+S, Ctrl+Shift+S
+            if ((e.ctrlKey && e.key === 's') || (e.ctrlKey && e.shiftKey && e.key === 's')) {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquer F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Bloquer le drag des images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
             });
         });
     </script>

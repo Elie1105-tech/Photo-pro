@@ -49,11 +49,14 @@
             z-index: 1000;
             padding: 1.5rem 5%;
             transition: padding 0.3s ease;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         header.scrolled {
             padding: 1rem 5%;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         nav {
@@ -351,13 +354,12 @@
             border-radius: 15px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 15px 8px 15px rgba(0, 0, 0, 0.95);
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(196, 155, 58, 0.3);
         }
 
         .gallery-item img {
@@ -400,7 +402,7 @@
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 15px 8px 15px rgba(0, 0, 0, 0.95);
             transition: transform 0.3s ease;
         }
 
@@ -409,6 +411,12 @@
         }
 
         .info-card i {
+            font-size: 3rem;
+            color: var(--dore);
+            margin-bottom: 1rem;
+        }
+
+        .info-card .devise {
             font-size: 3rem;
             color: var(--dore);
             margin-bottom: 1rem;
@@ -729,7 +737,7 @@
         </div>
 
         <!-- Info Cards -->
-        <!-- <div class="info-cards">
+        <div class="info-cards">
             <div class="info-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-clock"></i>
                 <h3>Durée</h3>
@@ -746,11 +754,11 @@
                 <p>Studio professionnel équipé</p>
             </div>
             <div class="info-card" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-euro-sign"></i>
+                <p class="devise">Ar</p>
                 <h3>Tarif</h3>
                 <p>200€ par personne</p>
             </div>
-        </div> -->
+        </div>
 
         <!-- Program Section -->
         <!-- <div class="program-section" data-aos="fade-up">

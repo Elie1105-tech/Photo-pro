@@ -1,0 +1,50 @@
+/* Protection des images contre le téléchargement */
+
+/* Désactiver le clic droit sur les images */
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+}
+
+/* Empêcher le drag & drop des images */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    /* user-drag: none; */
+}
+
+/* Réactiver les clics pour les éléments interactifs */
+a, button, .card, .category-card, .workshop-card, .gallery-item {
+    pointer-events: auto;
+}
+
+/* Overlay transparent sur les images pour bloquer les interactions */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+}
+
+/* Empêcher l'inspection des images via F12 */
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
