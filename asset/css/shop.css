@@ -711,7 +711,7 @@ footer {
     }
 
     .modal-content {
-        margin: 8% auto;
+        margin: 2% auto;
         width: 95%;
         max-width: 450px;
         padding: 1.5rem;
@@ -758,11 +758,11 @@ footer {
     }
 
     .modal-content {
-        margin: 100px auto 20px;
+        margin: 70px auto 20px;
         width: 80%;
         max-width: 400px;
         padding: 1.2rem;
-        max-height: 85vh;
+        max-height: 90vh;
         /* overflow-y: auto; */
     }
 
