@@ -114,6 +114,57 @@
             color: var(--dore);
         }
 
+        .shop-button {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        .shop-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(196, 155, 58, 0.1);
+            color: var(--blanc);
+            border: 2px solid var(--dore);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shop-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--dore);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .shop-link:hover {
+            color: var(--blanc);
+            border-color: var(--dore);
+            box-shadow: 0 0 20px rgba(196, 155, 58, 0.4);
+        }
+
+        .shop-link:hover::before {
+            transform: scale(1);
+        }
+
+        .shop-link:hover i {
+            transform: scale(1.1);
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -465,6 +516,16 @@
                 right: 0;
             }
 
+            .shop-button {
+                margin-left: 8rem;
+            }
+
+            .shop-link {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
             .menu-toggle {
                 display: flex;
             }
@@ -518,6 +579,11 @@
                 <li><a href="../studio.html">Studio</a></li>
                 <li><a href="../about.html">About</a></li>
             </ul>
+            <div class="shop-button">
+                <a href="../shop.html" class="shop-link">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>

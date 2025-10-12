@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXPhoto - Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/css/shop.css">
+    <!-- <link rel="stylesheet" href="./asset/css/image-protection.css"> -->
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="index.html" class="logo">LX<span>Photo</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="studio.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="shop-button">
+                <a href="shop.html" class="shop-link">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div data-aos="fade-up">
+            <h1>Boutique</h1>
+            <p style="color: #ffff;">Découvrez mes créations photographiques disponibles à l'achat</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-intro" data-aos="fade-up">
+            <h2 style="color: #fff3e0;">Galerie de Tableaux</h2>
+            <p>Chaque photographie raconte une histoire unique. Choisissez parmi nos tirages d'art en édition limitée, disponibles en différents formats pour embellir vos espaces.</p>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section" data-aos="fade-up">
+            <div class="gallery-grid">
+                <!-- Tableau 1 -->
+                <div class="tableau-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800" alt="Portrait Artistique" class="tableau-image">
+                    <div class="tableau-overlay">
+                        <h3 class="tableau-title">Portrait Artistique</h3>
+                        <p class="tableau-description">Un portrait saisissant qui capture l'essence de l'âme humaine</p>
+
+                        <div class="tableau-sizes">
+                            <div class="size-option">
+                                <span class="size-label">30x40 cm</span>
+                                <span class="size-price">85€</span>
+                                <button class="btn-order" data-tableau="Portrait Artistique" data-taille="30x40 cm" data-prix="85€" onclick="openOrderModal('Portrait Artistique', '30x40 cm', '85€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">50x70 cm</span>
+                                <span class="size-price">145€</span>
+                                <button class="btn-order" data-tableau="Portrait Artistique" data-taille="50x70 cm" data-prix="145€" onclick="openOrderModal('Portrait Artistique', '50x70 cm', '145€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">70x100 cm</span>
+                                <span class="size-price">225€</span>
+                                <button class="btn-order" data-tableau="Portrait Artistique" data-taille="70x100 cm" data-prix="225€" onclick="openOrderModal('Portrait Artistique', '70x100 cm', '225€')">Commander</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tableau 2 -->
+                <div class="tableau-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Paysage Marin" class="tableau-image">
+                    <div class="tableau-overlay">
+                        <h3 class="tableau-title">Paysage Marin</h3>
+                        <p class="tableau-description">La sérénité des côtes françaises capturée au coucher du soleil</p>
+
+                        <div class="tableau-sizes">
+                            <div class="size-option">
+                                <span class="size-label">30x40 cm</span>
+                                <span class="size-price">85€</span>
+                                <button class="btn-order" data-tableau="Paysage Marin" data-taille="30x40 cm" data-prix="85€" onclick="openOrderModal('Paysage Marin', '30x40 cm', '85€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">50x70 cm</span>
+                                <span class="size-price">145€</span>
+                                <button class="btn-order" data-tableau="Paysage Marin" data-taille="50x70 cm" data-prix="145€" onclick="openOrderModal('Paysage Marin', '50x70 cm', '145€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">70x100 cm</span>
+                                <span class="size-price">225€</span>
+                                <button class="btn-order" data-tableau="Paysage Marin" data-taille="70x100 cm" data-prix="225€" onclick="openOrderModal('Paysage Marin', '70x100 cm', '225€')">Commander</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tableau 3 -->
+                <div class="tableau-card">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800" alt="Rue de Paris" class="tableau-image">
+                    <div class="tableau-overlay">
+                        <h3 class="tableau-title">Rue de Paris</h3>
+                        <p class="tableau-description">L'effervescence de la vie urbaine dans les rues parisiennes</p>
+
+                        <div class="tableau-sizes">
+                            <div class="size-option">
+                                <span class="size-label">30x40 cm</span>
+                                <span class="size-price">85€</span>
+                                <button class="btn-order" data-tableau="Rue de Paris" data-taille="30x40 cm" data-prix="85€" onclick="openOrderModal('Rue de Paris', '30x40 cm', '85€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">50x70 cm</span>
+                                <span class="size-price">145€</span>
+                                <button class="btn-order" data-tableau="Rue de Paris" data-taille="50x70 cm" data-prix="145€" onclick="openOrderModal('Rue de Paris', '50x70 cm', '145€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">70x100 cm</span>
+                                <span class="size-price">225€</span>
+                                <button class="btn-order" data-tableau="Rue de Paris" data-taille="70x100 cm" data-prix="225€" onclick="openOrderModal('Rue de Paris', '70x100 cm', '225€')">Commander</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tableau 4 -->
+                <div class="tableau-card">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800" alt="Nature Morte" class="tableau-image">
+                    <div class="tableau-overlay">
+                        <h3 class="tableau-title">Nature Morte</h3>
+                        <p class="tableau-description">Une composition florale qui célèbre la beauté éphémère de la nature</p>
+
+                        <div class="tableau-sizes">
+                            <div class="size-option">
+                                <span class="size-label">30x40 cm</span>
+                                <span class="size-price">85€</span>
+                                <button class="btn-order" data-tableau="Nature Morte" data-taille="30x40 cm" data-prix="85€" onclick="openOrderModal('Nature Morte', '30x40 cm', '85€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">50x70 cm</span>
+                                <span class="size-price">145€</span>
+                                <button class="btn-order" data-tableau="Nature Morte" data-taille="50x70 cm" data-prix="145€" onclick="openOrderModal('Nature Morte', '50x70 cm', '145€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">70x100 cm</span>
+                                <span class="size-price">225€</span>
+                                <button class="btn-order" data-tableau="Nature Morte" data-taille="70x100 cm" data-prix="225€" onclick="openOrderModal('Nature Morte', '70x100 cm', '225€')">Commander</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tableau 5 -->
+                <div class="tableau-card">
+                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800" alt="Montagne Brumeuse" class="tableau-image">
+                    <div class="tableau-overlay">
+                        <h3 class="tableau-title">Montagne Brumeuse</h3>
+                        <p class="tableau-description">La majesté des Alpes françaises enveloppée dans une brume mystique</p>
+
+                        <div class="tableau-sizes">
+                            <div class="size-option">
+                                <span class="size-label">30x40 cm</span>
+                                <span class="size-price">85€</span>
+                                <button class="btn-order" data-tableau="Montagne Brumeuse" data-taille="30x40 cm" data-prix="85€" onclick="openOrderModal('Montagne Brumeuse', '30x40 cm', '85€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">50x70 cm</span>
+                                <span class="size-price">145€</span>
+                                <button class="btn-order" data-tableau="Montagne Brumeuse" data-taille="50x70 cm" data-prix="145€" onclick="openOrderModal('Montagne Brumeuse', '50x70 cm', '145€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">70x100 cm</span>
+                                <span class="size-price">225€</span>
+                                <button class="btn-order" data-tableau="Montagne Brumeuse" data-taille="70x100 cm" data-prix="225€" onclick="openOrderModal('Montagne Brumeuse', '70x100 cm', '225€')">Commander</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tableau 6 -->
+                <div class="tableau-card">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800" alt="Architecture Moderne" class="tableau-image">
+                    <div class="tableau-overlay">
+                        <h3 class="tableau-title">Architecture Moderne</h3>
+                        <p class="tableau-description">Les lignes épurées et la géométrie parfaite du design architectural</p>
+
+                        <div class="tableau-sizes">
+                            <div class="size-option">
+                                <span class="size-label">30x40 cm</span>
+                                <span class="size-price">85€</span>
+                                <button class="btn-order" data-tableau="Architecture Moderne" data-taille="30x40 cm" data-prix="85€" onclick="openOrderModal('Architecture Moderne', '30x40 cm', '85€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">50x70 cm</span>
+                                <span class="size-price">145€</span>
+                                <button class="btn-order" data-tableau="Architecture Moderne" data-taille="50x70 cm" data-prix="145€" onclick="openOrderModal('Architecture Moderne', '50x70 cm', '145€')">Commander</button>
+                            </div>
+                            <div class="size-option">
+                                <span class="size-label">70x100 cm</span>
+                                <span class="size-price">225€</span>
+                                <button class="btn-order" data-tableau="Architecture Moderne" data-taille="70x100 cm" data-prix="225€" onclick="openOrderModal('Architecture Moderne', '70x100 cm', '225€')">Commander</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section" data-aos="fade-up">
+            <h2>Informations sur les Tirages</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Édition Limitée</h3>
+                    <p >Chaque tirage est produit en série limitée à 50 exemplaires maximum, garantissant son exclusivité et sa valeur artistique.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Qualité Musée</h3>
+                    <p>Tirages professionnels sur papier d'art Hahnemühle Fine Art Pearl 285g/m² avec encres pigmentaires haute longévité.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Certificat d'Authenticité</h3>
+                    <p>Chaque œuvre est accompagnée d'un certificat d'authenticité numéroté et signé par l'artiste.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Livraison Sécurisée</h3>
+                    <p>Emballage professionnel et livraison assurée avec suivi. Frais de port offerts à partir de 200€ d'achat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Modal -->
+    <div class="order-modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Commander un Tableau</h2>
+                <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="order-form" id="orderForm">
+                    <div class="form-group">
+                        <label for="tableauName">Nom du tableau</label>
+                        <input type="text" id="tableauName" name="tableauName" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tableauSize">Taille sélectionnée</label>
+                        <input type="text" id="tableauSize" name="tableauSize" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tableauPrice">Prix</label>
+                        <input type="text" id="tableauPrice" name="tableauPrice" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerEmail">Votre email *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required placeholder="votre.email@exemple.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerMessage">Message (optionnel)</label>
+                        <textarea id="customerMessage" name="customerMessage" placeholder="Précisez vos préférences de finition, cadre, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Confirmer la Commande</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 LXPhoto. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="./asset/js/image-protection.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Order Modal Functionality
+        let currentOrderData = {};
+
+        // Open order modal
+        function openOrderModal(tableau, taille, prix) {
+            console.log('openOrderModal called with:', {tableau, taille, prix});
+            currentOrderData = { tableau, taille, prix };
+
+            // Check if elements exist before trying to use them
+            const modal = document.getElementById('orderModal');
+            const tableauNameInput = document.getElementById('tableauName');
+            const tableauSizeInput = document.getElementById('tableauSize');
+            const tableauPriceInput = document.getElementById('tableauPrice');
+            const customerEmailInput = document.getElementById('customerEmail');
+
+            if (!modal || !tableauNameInput || !tableauSizeInput || !tableauPriceInput || !customerEmailInput) {
+                console.error('Modal elements not found!');
+                return;
+            }
+
+            tableauNameInput.value = tableau;
+            tableauSizeInput.value = taille;
+            tableauPriceInput.value = prix;
+            customerEmailInput.value = '';
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            console.log('Modal should now be visible');
+        }
+
+        // Close order modal
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Test function for debugging
+        window.testOrderModal = function() {
+            console.log('Testing order modal...');
+            openOrderModal('Test Tableau', '50x70 cm', '145€');
+        };
+
+        // Ensure DOM is loaded before executing
+        console.log('Shop page loaded. Order modal functions are ready.');
+
+        // Check if all order buttons are properly configured
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderButtons = document.querySelectorAll('.btn-order');
+            console.log('Found', orderButtons.length, 'order buttons');
+
+            orderButtons.forEach((button, index) => {
+                console.log(`Button ${index + 1}:`, {
+                    tableau: button.getAttribute('data-tableau'),
+                    taille: button.getAttribute('data-taille'),
+                    prix: button.getAttribute('data-prix'),
+                    onclick: button.getAttribute('onclick') ? 'Has onclick' : 'No onclick'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

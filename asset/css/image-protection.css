@@ -20,16 +20,16 @@ img {
 }
 
 /* Réactiver les clics pour les éléments interactifs */
-a, button, .card, .category-card, .workshop-card, .gallery-item {
-    pointer-events: auto;
+a, button, .card, .category-card, .workshop-card, .gallery-item, .tableau-card, .btn-order, .size-option, .modal-close, .btn-submit {
+    pointer-events: auto !important;
 }
 
 /* Overlay transparent sur les images pour bloquer les interactions */
-.gallery-item {
+.gallery-item, .tableau-card {
     position: relative;
 }
 
-.gallery-item::before {
+.gallery-item::before, .tableau-card::before {
     content: '';
     position: absolute;
     top: 0;
