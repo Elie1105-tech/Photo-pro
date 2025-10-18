@@ -50,7 +50,7 @@ header.scrolled {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
@@ -65,8 +65,12 @@ nav {
     text-decoration: none;
 }
 
-.logo span {
-    color: var(--dore);
+.logo img{
+    width: 150px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
 }
 
 .nav-links {

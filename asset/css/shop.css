@@ -18,7 +18,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: var(--bleu-nuit);
-    background: #000000 url('../images/hexa_dan_wave_10.jpg') no-repeat center center fixed;
+    background: #000000 url('/asset/images/black-hexagons-3d-textures-honeycomb-hexagons-patterns-hexagons-textures+Kop33ie.jpg') no-repeat center center fixed;
     background-size: cover;
     overflow-x: hidden;
 }
@@ -58,7 +58,7 @@ p {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
@@ -73,8 +73,12 @@ nav {
     text-decoration: none;
 }
 
-.logo span {
-    color: var(--dore);
+.logo img{
+    width: 150px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
 }
 
 .nav-links {
