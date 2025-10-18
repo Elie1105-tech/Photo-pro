@@ -20,7 +20,7 @@ body {
     /* min-height: 200vh; */
     font-family: 'Open Sans', sans-serif;
     color: var(--blanc);
-    background: url('/asset/images/black-hexagons-3d-textures-honeycomb-hexagons-patterns-hexagons-textures+Kop33ie.jpg') no-repeat center center fixed;
+    background: url('../images/black-hexagons-3d-textures-honeycomb-hexagons-patterns-hexagons-textures+Kop33ie.jpg') no-repeat center center fixed;
     background-size: auto;
     overflow-x: hidden;
 }
