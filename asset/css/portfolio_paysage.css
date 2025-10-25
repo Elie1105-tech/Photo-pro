@@ -15,7 +15,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: var(--blanc);
     background: #000000 url('../images/black-hexagons-3d-textures-honeycomb-hexagons-patterns-hexagons-textures+Kop33ie.jpg') no-repeat center center fixed;
-    background-size: auto;
+    background-size: cover;
     overflow-x: hidden;
 }
 
@@ -556,5 +556,87 @@ footer {
     
     .custom-alert-title {
         font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    body {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    .main-content {
+        padding: 12rem 5%;
+        max-width: 2400px;
+    }
+
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.6rem;
+    }
+
+    .content-intro h2 {
+        font-size: 3rem;
+    }
+
+    .content-intro p {
+        font-size: 1.3rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 4rem;
+        margin-bottom: 5rem;
+        max-width: 2400px;
+    }
+
+    .gallery-item {
+        height: 500px;
+        min-width: 400px;
+        max-width: 500px;
+    }
+
+    .gallery-overlay {
+        padding: 3rem;
+    }
+
+    .gallery-overlay h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-overlay p {
+        font-size: 1.1rem;
+    }
+
+    .featured-section {
+        padding: 6rem 5%;
+        margin-top: 5rem;
+    }
+
+    .featured-title {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 4rem;
+        max-width: 2400px;
+    }
+
+    .featured-item {
+        height: 600px;
+        min-width: 450px;
+        max-width: 550px;
+    }
+
+    footer {
+        padding: 4rem 5%;
     }
 }
