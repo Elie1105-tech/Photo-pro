@@ -453,13 +453,6 @@ footer {
         font-size: 1.1rem;
     }
 
-    .category-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        width: 350px;
-    }
-
     .section-intro h2 {
         font-size: 2rem;
     }
