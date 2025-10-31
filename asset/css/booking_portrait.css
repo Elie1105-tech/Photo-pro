@@ -507,10 +507,13 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
+        display: flex;
         position: fixed;
         right: -100%;
-        top: 80px;
+        top: 110px;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         background: var(--bleu-nuit);
         width: 100%;
         padding: 2rem;
@@ -564,6 +567,15 @@ footer {
         background-position: center center;
         background-attachment: fixed;
         min-height: 100vh;
+    }
+
+    nav {
+        max-width: 3000px;
+        display: flex;
+        gap: 2.5rem;
+        font-size: 1.3rem;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .main-content {
